@@ -790,6 +790,163 @@
     padding-left: 8px;
   }
 
+  /* ── League pill add variant ──────────────────────────────── */
+  .league-pill-add {
+    border-style: dashed;
+    color: var(--text-3);
+    border-color: var(--border-strong);
+    background: transparent;
+    cursor: pointer;
+    gap: 6px;
+  }
+  .league-pill-add:hover {
+    border-color: var(--red);
+    color: var(--red);
+    box-shadow: 0 2px 8px rgba(230,57,70,0.1);
+    background: var(--red-light);
+  }
+
+  /* ── Pricing ──────────────────────────────────────────────── */
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 60px;
+    max-width: 800px;
+  }
+  .pricing-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px 36px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: box-shadow 0.2s, border-color 0.2s;
+  }
+  .pricing-card:hover {
+    box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    border-color: var(--border-strong);
+  }
+  .pricing-card-featured {
+    border-color: var(--red);
+    background: linear-gradient(160deg, #fff8f8 0%, #ffffff 60%);
+    box-shadow:
+      0 0 0 1px rgba(230,57,70,0.08),
+      0 4px 24px rgba(230,57,70,0.1);
+  }
+  .pricing-card-featured:hover {
+    box-shadow:
+      0 0 0 1px rgba(230,57,70,0.15),
+      0 8px 32px rgba(230,57,70,0.15);
+    border-color: var(--red);
+  }
+  .pricing-badge-best {
+    display: inline-flex;
+    align-items: center;
+    background: var(--red);
+    color: white;
+    font-family: var(--mono);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+    width: fit-content;
+  }
+  .pricing-plan {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 12px;
+  }
+  .pricing-price {
+    display: flex;
+    align-items: baseline;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+  .pricing-amount {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: 52px;
+    line-height: 1;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+  .pricing-period {
+    font-size: 16px;
+    color: var(--text-3);
+    font-weight: 400;
+  }
+  .pricing-desc {
+    font-size: 14px;
+    color: var(--text-2);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .pricing-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 32px;
+    flex: 1;
+  }
+  .pricing-features li {
+    font-size: 14px;
+    color: var(--text-2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .pricing-features li::before {
+    content: '✓';
+    color: var(--red);
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  .pricing-features li { padding-left: 0; }
+  /* strip the "✓" from li text since we use ::before */
+  .pricing-features li { white-space: normal; }
+  .btn-outline-card {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 13px 24px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 10px;
+    font-family: var(--sans);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    background: transparent;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s, color 0.2s;
+    gap: 8px;
+  }
+  .btn-outline-card:hover {
+    border-color: var(--red);
+    color: var(--red);
+    background: var(--red-light);
+  }
+  .pricing-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-3);
+    font-family: var(--mono);
+  }
+
   /* ── CTA Section ──────────────────────────────────────────── */
   .cta-section {
     background: var(--text);
@@ -909,20 +1066,47 @@
 
   /* ── Responsive ───────────────────────────────────────────── */
   @media (max-width: 900px) {
-    nav { padding: 0 24px; }
+    nav { padding: 0 20px; }
     .nav-links { display: none; }
-    .hero { padding: 120px 24px 60px; }
-    .stats-bar { padding: 40px 24px; }
-    .stats-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+    .hero { padding: 110px 20px 56px; }
+    .hero-headline { font-size: clamp(48px, 12vw, 80px); }
+    .hero-sub { font-size: 16px; }
+    .hero-actions { gap: 16px; }
+    .stats-bar { padding: 36px 20px; }
+    .stats-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 28px; }
     .stat-item { border-right: none; padding: 0; }
-    .section { padding: 72px 24px; }
-    .steps-grid, .features-grid { grid-template-columns: 1fr; }
+    .stat-num { font-size: 32px; }
+    .section { padding: 64px 20px; }
+    .section-heading { font-size: clamp(32px, 8vw, 50px); }
+    .steps-grid { grid-template-columns: 1fr; }
+    .step { padding: 36px 28px; }
+    .features-grid { grid-template-columns: 1fr; }
+    .feature-card { padding: 32px 28px; }
     .scoring-inner { grid-template-columns: 1fr; }
-    .scoring-left { border-right: none; border-bottom: 1px solid var(--border); padding: 32px; }
-    .scoring-right { padding: 32px; }
-    .cta-inner { flex-direction: column; }
-    .footer-inner { flex-direction: column; text-align: center; }
+    .scoring-left { border-right: none; border-bottom: 1px solid var(--border); padding: 28px; }
+    .scoring-right { padding: 28px; }
+    .scoring-result-score { font-size: 60px; }
+    .leagues-wrap { gap: 8px; }
+    .pricing-grid { grid-template-columns: 1fr; max-width: 100%; }
+    .pricing-amount { font-size: 52px; }
+    .pricing-card { padding: 32px 28px; }
+    .cta-inner { flex-direction: column; gap: 36px; }
+    .cta-heading { font-size: clamp(32px, 8vw, 48px); }
+    .footer-inner { flex-direction: column; text-align: center; gap: 20px; }
     .footer-right { text-align: center; }
+    .hero-mockup { overflow-x: auto; }
+    .mockup-body { grid-template-columns: 160px 1fr; }
+    .mockup-sidebar-item { padding: 7px 14px; }
+  }
+
+  @media (max-width: 540px) {
+    .hero-headline { font-size: clamp(40px, 13vw, 64px); }
+    .stats-bar-inner { grid-template-columns: 1fr 1fr; }
+    .stat-num { font-size: 28px; }
+    .stat-num span[style] { font-size: 28px !important; }
+    .hero-mockup { display: none; } /* Hide dashboard mockup on very small screens */
+    .mockup-decisions { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .pricing-amount { font-size: 44px; }
   }
 </style>
 </head>
@@ -932,9 +1116,12 @@
 <nav id="nav">
   <a href="#" class="nav-logo">
     <div class="nav-logo-mark">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.18L19 8.09v7.82L12 19.82 5 15.91V8.09L12 4.18z"/>
-        <path d="M12 8l-4 2.2v4.4L12 16.8l4-2.2v-4.4L12 8zm0 1.8l2.5 1.38v2.64L12 15.2l-2.5-1.38V11.18L12 9.8z"/>
+      <svg viewBox="168 28 198 464" xmlns="http://www.w3.org/2000/svg" style="width:20px;height:20px;">
+        <path fill="none" d="M292.000000,521.000000 C194.689621,521.000000 97.879227,521.000000 1.034423,521.000000 C1.034423,347.730713 1.034423,174.461395 1.034423,1.096040 C178.893753,1.096040 356.787567,1.096040 534.840698,1.096040 C534.840698,174.333221 534.840698,347.666595 534.840698,521.000000 C454.127960,521.000000 373.313995,521.000000 292.000000,521.000000 M287.088409,437.500000 C287.088409,424.255066 287.088409,411.010162 287.088409,397.838196 C297.947968,397.838196 308.021881,397.838196 318.550415,397.838196 C318.550415,400.016235 318.550354,401.818359 318.550415,403.620514 C318.550690,416.118591 318.469879,428.617401 318.577942,441.114532 C318.659454,450.544556 325.555756,457.623016 334.355408,457.595428 C343.273041,457.567474 349.966431,450.510590 349.993774,441.005249 C350.030670,428.174011 350.003082,415.342529 350.003174,402.511169 C350.003204,400.915253 350.003174,399.319336 350.003174,397.380951 C368.114807,398.323944 383.533417,393.263031 396.074158,380.817749 C408.729828,368.258331 413.784637,352.677216 412.997467,334.659851 C415.250244,334.659851 417.043213,334.659912 418.836182,334.659851 C430.501068,334.659363 442.168121,334.798584 453.830139,334.614960 C463.478455,334.463013 470.113708,327.769012 470.066345,318.698761 C470.019379,309.700043 463.125671,303.108917 453.585663,303.039215 C445.920593,302.983215 438.254791,303.027710 430.589294,303.027679 C424.820007,303.027649 419.050720,303.027679 413.246613,303.027679 C413.246613,292.351379 413.246613,282.269836 413.246613,271.806488 C415.308197,271.806488 417.108978,271.806519 418.909760,271.806519 C438.740051,271.806458 458.570465,271.844177 478.400635,271.790680 C488.625610,271.763092 495.864380,265.131927 495.907898,255.946365 C495.951996,246.640320 488.800476,240.106766 478.477539,240.096237 C458.480591,240.075867 438.483673,240.090256 418.486725,240.090256 C416.730988,240.090256 414.975250,240.090256 413.293091,240.090256 C413.293091,229.327927 413.293091,219.252136 413.293091,208.909714 C426.422058,208.909714 439.232208,208.925735 452.042297,208.904770 C462.825317,208.887131 469.947723,202.638336 470.038605,193.168945 C470.131989,183.437057 463.021851,177.126953 451.850403,177.097122 C440.352264,177.066406 428.853912,177.099869 417.355743,177.077805 C415.933380,177.075089 414.511353,176.903671 413.109650,176.811783 C413.977081,148.364120 393.226257,117.609344 352.972260,116.641571 C352.972260,102.702156 352.988312,88.746490 352.966949,74.790886 C352.951019,64.371712 346.628571,57.239555 337.338562,57.094707 C328.339050,56.954391 321.397675,64.284096 321.229736,74.431885 C321.072601,83.927849 321.194305,93.428421 321.193604,102.926964 C321.193237,107.530968 321.193512,112.134972 321.193512,116.814056 C310.512512,116.814056 300.443176,116.814056 290.003113,116.814056 C290.003113,114.743492 290.003082,112.944458 290.003082,111.145416 C290.003021,90.148628 289.947083,69.151604 290.038391,48.155212 C290.064423,42.168388 287.900269,37.417606 282.947510,34.138683 C278.003174,30.865345 272.610504,30.397659 267.311340,33.105503 C261.074646,36.292427 258.353149,41.761806 258.347534,48.649353 C258.332703,66.813225 258.341003,84.977119 258.340210,103.140999 C258.339996,107.605476 258.340179,112.069946 258.340179,116.720612 C247.733276,116.720612 237.540619,116.720612 227.060699,116.720612 C227.060699,101.707649 227.190552,87.061325 227.010040,72.418823 C226.908249,64.161308 220.236221,57.540970 212.162094,57.100029 C203.979324,56.653149 196.344284,62.928848 195.889572,71.363487 C195.361099,81.166626 195.614609,91.012589 195.556030,100.840126 C195.524597,106.112892 195.550446,111.385994 195.550446,116.562775 C151.456543,122.589859 138.457764,135.018890 132.231934,177.090256 C130.536804,177.090256 128.754593,177.090118 126.972374,177.090271 C114.474289,177.091232 101.974854,176.979172 89.478554,177.129150 C79.521553,177.248642 72.677582,183.996704 72.802849,193.185074 C72.929184,202.452835 79.781143,208.853516 89.775459,208.896515 C102.439957,208.950989 115.104881,208.900299 127.769569,208.921692 C129.357620,208.924362 130.945389,209.089447 132.403198,209.171921 C132.403198,219.742828 132.403198,229.798019 132.403198,240.090256 C130.188248,240.090256 128.363983,240.090271 126.539719,240.090271 C105.709572,240.090286 84.876015,239.896667 64.052353,240.264053 C60.181908,240.332352 55.814247,241.887527 52.621494,244.112900 C47.099335,247.961899 45.666039,254.915222 47.897919,261.125427 C50.339664,267.919586 55.874126,271.763672 63.711670,271.785767 C84.874931,271.845490 106.038475,271.800903 127.201889,271.816559 C128.959625,271.817841 130.717270,271.961182 132.445801,272.037231 C132.445801,282.643341 132.445801,292.710907 132.445801,303.027710 C118.111275,303.027710 104.124031,303.016113 90.136833,303.031525 C79.654984,303.043091 72.815834,309.271973 72.800377,318.777954 C72.785004,328.231873 79.668495,334.601440 90.096771,334.647095 C102.427979,334.701080 114.759605,334.659851 127.091049,334.659882 C128.851974,334.659882 130.612900,334.659851 132.848145,334.659851 C131.831284,352.256317 136.693558,367.244141 148.417969,379.613708 C160.275818,392.124023 175.160706,397.738647 192.794647,397.549316 C192.794647,399.789093 192.794479,401.579010 192.794678,403.368896 C192.796066,415.866974 192.712173,428.365875 192.826401,440.862915 C192.915604,450.621002 199.323883,457.420380 208.289398,457.586731 C217.378510,457.755371 224.120041,450.700226 224.183273,440.743958 C224.262619,428.246368 224.202835,415.747894 224.203064,403.249817 C224.203110,401.471985 224.203079,399.694122 224.203079,397.816711 C234.918167,397.816711 244.983322,397.816711 255.550446,397.816711 C255.550446,400.131714 255.546600,402.095703 255.551056,404.059692 C255.599411,425.387421 255.394196,446.720215 255.814606,468.040619 C256.002014,477.544708 262.931122,483.342499 272.159180,483.083923 C280.733582,482.843719 287.002533,476.150452 287.071808,466.995514 C287.143677,457.497528 287.088196,447.998535 287.088409,437.500000 z"/>
+        <path fill="white" d="M287.088409,438.000000 C287.088196,447.998535 287.143677,457.497528 287.071808,466.995514 C287.002533,476.150452 280.733582,482.843719 272.159180,483.083923 C262.931122,483.342499 256.002014,477.544708 255.814606,468.040619 C255.394196,446.720215 255.599411,425.387421 255.551056,404.059692 C255.546600,402.095703 255.550446,400.131714 255.550446,397.816711 C244.983322,397.816711 234.918167,397.816711 224.203079,397.816711 C224.203079,399.694122 224.203110,401.471985 224.203064,403.249817 C224.202835,415.747894 224.262619,428.246368 224.183273,440.743958 C224.120041,450.700226 217.378510,457.755371 208.289398,457.586731 C199.323883,457.420380 192.915604,450.621002 192.826401,440.862915 C192.712173,428.365875 192.796066,415.866974 192.794678,403.368896 C192.794479,401.579010 192.794647,399.789093 192.794647,397.549316 C175.160706,397.738647 160.275818,392.124023 148.417969,379.613708 C136.693558,367.244141 131.831284,352.256317 132.848145,334.659851 C130.612900,334.659851 128.851974,334.659882 127.091049,334.659882 C114.759605,334.659851 102.427979,334.701080 90.096771,334.647095 C79.668495,334.601440 72.785004,328.231873 72.800377,318.777954 C72.815834,309.271973 79.654984,303.043091 90.136833,303.031525 C104.124031,303.016113 118.111275,303.027710 132.445801,303.027710 C132.445801,292.710907 132.445801,282.643341 132.445801,272.037231 C130.717270,271.961182 128.959625,271.817841 127.201889,271.816559 C106.038475,271.800903 84.874931,271.845490 63.711670,271.785767 C55.874126,271.763672 50.339664,267.919586 47.897919,261.125427 C45.666039,254.915222 47.099335,247.961899 52.621494,244.112900 C55.814247,241.887527 60.181908,240.332352 64.052353,240.264053 C84.876015,239.896667 105.709572,240.090286 126.539719,240.090271 C128.363983,240.090271 130.188248,240.090256 132.403198,240.090256 C132.403198,229.798019 132.403198,219.742828 132.403198,209.171921 C130.945389,209.089447 129.357620,208.924362 127.769569,208.921692 C115.104881,208.900299 102.439957,208.950989 89.775459,208.896515 C79.781143,208.853516 72.929184,202.452835 72.802849,193.185074 C72.677582,183.996704 79.521553,177.248642 89.478554,177.129150 C101.974854,176.979172 114.474289,177.091232 126.972374,177.090271 C128.754593,177.090118 130.536804,177.090256 132.231934,177.090256 C138.457764,135.018890 151.456543,122.589859 195.550446,116.562775 C195.550446,111.385994 195.524597,106.112892 195.556030,100.840126 C195.614609,91.012589 195.361099,81.166626 195.889572,71.363487 C196.344284,62.928848 203.979324,56.653149 212.162094,57.100029 C220.236221,57.540970 226.908249,64.161308 227.010040,72.418823 C227.190552,87.061325 227.060699,101.707649 227.060699,116.720612 C237.540619,116.720612 247.733276,116.720612 258.340179,116.720612 C258.340179,112.069946 258.339996,107.605476 258.340210,103.140999 C258.341003,84.977119 258.332703,66.813225 258.347534,48.649353 C258.353149,41.761806 261.074646,36.292427 267.311340,33.105503 C272.610504,30.397659 278.003174,30.865345 282.947510,34.138683 C287.900269,37.417606 290.064423,42.168388 290.038391,48.155212 C289.947083,69.151604 290.003021,90.148628 290.003082,111.145416 C290.003082,112.944458 290.003113,114.743492 290.003113,116.814056 C300.443176,116.814056 310.512512,116.814056 321.193512,116.814056 C321.193512,112.134972 321.193237,107.530968 321.193604,102.926964 C321.194305,93.428421 321.072601,83.927849 321.229736,74.431885 C321.397675,64.284096 328.339050,56.954391 337.338562,57.094707 C346.628571,57.239555 352.951019,64.371712 352.966949,74.790886 C352.988312,88.746490 352.972260,102.702156 352.972260,116.641571 C393.226257,117.609344 413.977081,148.364120 413.109650,176.811783 C414.511353,176.903671 415.933380,177.075089 417.355743,177.077805 C428.853912,177.099869 440.352264,177.066406 451.850403,177.097122 C463.021851,177.126953 470.131989,183.437057 470.038605,193.168945 C469.947723,202.638336 462.825317,208.887131 452.042297,208.904770 C439.232208,208.925735 426.422058,208.909714 413.293091,208.909714 C413.293091,219.252136 413.293091,229.327927 413.293091,240.090256 C414.975250,240.090256 416.730988,240.090256 418.486725,240.090256 C438.483673,240.090256 458.480591,240.075867 478.477539,240.096237 C488.800476,240.106766 495.951996,246.640320 495.907898,255.946365 C495.864380,265.131927 488.625610,271.763092 478.400635,271.790680 C458.570465,271.844177 438.740051,271.806458 418.909760,271.806519 C417.108978,271.806519 415.308197,271.806488 413.246613,271.806488 C413.246613,282.269836 413.246613,292.351379 413.246613,303.027679 C419.050720,303.027679 424.820007,303.027649 430.589294,303.027679 C438.254791,303.027710 445.920593,302.983215 453.585663,303.039215 C463.125671,303.108917 470.019379,309.700043 470.066345,318.698761 C470.113708,327.769012 463.478455,334.463013 453.830139,334.614960 C442.168121,334.798584 430.501068,334.659363 418.836182,334.659851 C417.043213,334.659912 415.250244,334.659851 412.997467,334.659851 C413.784637,352.677216 408.729828,368.258331 396.074158,380.817749 C383.533417,393.263031 368.114807,398.323944 350.003174,397.380951 C350.003174,399.319336 350.003204,400.915253 350.003174,402.511169 C350.003082,415.342529 350.030670,428.174011 349.993774,441.005249 C349.966431,450.510590 343.273041,457.567474 334.355408,457.595428 C325.555756,457.623016 318.659454,450.544556 318.577942,441.114532 C318.469879,428.617401 318.550690,416.118591 318.550415,403.620514 C318.550354,401.818359 318.550415,400.016235 318.550415,397.838196 C308.021881,397.838196 297.947968,397.838196 287.088409,397.838196 C287.088409,411.010162 287.088409,424.255066 287.088409,438.000000 M194.541779,148.908051 C174.895447,146.994476 163.742828,161.341949 163.967270,179.440765 C164.624283,232.419662 164.190536,285.411957 164.207199,338.398987 C164.212433,355.071564 175.034317,365.979370 191.640671,365.987885 C245.794067,366.015564 299.947510,366.016754 354.100922,365.987000 C370.323090,365.978119 381.268219,355.404755 381.299988,339.287872 C381.407349,284.801422 381.402435,230.314514 381.304199,175.828003 C381.274109,159.138168 370.696411,148.912262 353.991333,148.910324 C301.170929,148.904221 248.350510,148.908066 194.541779,148.908051 z"/>
+        <path fill="rgba(255,255,255,0.15)" d="M195.035950,148.908051 C248.350510,148.908066 301.170929,148.904221 353.991333,148.910324 C370.696411,148.912262 381.274109,159.138168 381.304199,175.828003 C381.402435,230.314514 381.407349,284.801422 381.299988,339.287872 C381.268219,355.404755 370.323090,365.978119 354.100922,365.987000 C299.947510,366.016754 245.794067,366.015564 191.640671,365.987885 C175.034317,365.979370 164.212433,355.071564 164.207199,338.398987 C164.190536,285.411957 164.624283,232.419662 163.967270,179.440765 C163.742828,161.341949 174.895447,146.994476 195.035950,148.908051 M186.091217,291.494598 C186.091263,294.827728 186.073868,298.160980 186.094589,301.493958 C186.158859,311.834717 192.654648,318.943939 201.986115,318.904968 C211.230377,318.866364 217.754959,311.658875 217.800598,301.396118 C217.827042,295.447937 217.805405,289.499573 217.805405,283.424713 C224.249725,283.424713 230.142273,283.424713 236.349792,283.424713 C236.349792,289.913849 236.173996,296.075500 236.389740,302.223419 C236.740082,312.206970 243.550262,319.111450 252.533142,318.906433 C261.566498,318.700256 267.982544,311.579742 267.994263,301.634979 C268.019836,279.969391 268.014984,258.303711 267.981964,236.638138 C267.978668,234.481857 267.907898,232.286041 267.510193,230.176102 C263.345947,208.082108 244.757629,194.052292 222.406647,196.056274 C201.861557,197.898346 186.106110,216.087769 186.093292,237.999222 C186.083054,255.498383 186.091217,272.997559 186.091217,291.494598 M280.342926,272.499939 C280.409821,282.992767 280.084381,293.507263 280.662109,303.971893 C281.165588,313.091827 288.388092,319.271851 296.832153,318.902069 C305.571320,318.519379 311.940796,311.591919 311.994141,302.352234 C312.030396,296.071350 312.001068,289.790070 312.001068,283.459717 C318.566132,283.459717 324.606659,283.459717 330.512451,283.459717 C330.688690,283.985535 330.783386,284.137665 330.784607,284.290497 C330.834991,290.618561 330.809204,296.948090 330.936462,303.274506 C331.111847,311.994751 337.942780,318.820831 346.447205,318.905731 C355.064362,318.991730 362.111969,312.328613 362.155762,303.562958 C362.270569,280.571869 362.457581,257.575592 362.102478,234.589325 C361.784393,213.995331 344.138550,196.591614 323.702972,195.965668 C301.334625,195.280518 282.577362,210.707321 281.000824,232.051620 C280.033691,245.145813 280.513245,258.346863 280.342926,272.499939 z"/>
+        <path fill="white" d="M186.091217,290.995667 C186.091217,272.997559 186.083054,255.498383 186.093292,237.999222 C186.106110,216.087769 201.861557,197.898346 222.406647,196.056274 C244.757629,194.052292 263.345947,208.082108 267.510193,230.176102 C267.907898,232.286041 267.978668,234.481857 267.981964,236.638138 C268.014984,258.303711 268.019836,279.969391 267.994263,301.634979 C267.982544,311.579742 261.566498,318.700256 252.533142,318.906433 C243.550262,319.111450 236.740082,312.206970 236.389740,302.223419 C236.173996,296.075500 236.349792,289.913849 236.349792,283.424713 C230.142273,283.424713 224.249725,283.424713 217.805405,283.424713 C217.805405,289.499573 217.827042,295.447937 217.800598,301.396118 C217.754959,311.658875 211.230377,318.866364 201.986115,318.904968 C192.654648,318.943939 186.158859,311.834717 186.094589,301.493958 C186.073868,298.160980 186.091263,294.827728 186.091217,290.995667 M236.213928,250.683411 C236.219208,245.534515 236.522522,240.363419 236.140945,235.243362 C235.799988,230.668671 231.825256,227.490173 227.287445,227.369614 C222.792831,227.250198 218.418381,230.409576 218.078232,234.826187 C217.661469,240.237457 217.978897,245.705246 217.978897,251.361404 C224.106430,251.361404 229.881882,251.361404 236.213928,250.683411 z"/>
+        <path fill="white" d="M280.343018,271.999939 C280.513245,258.346863 280.033691,245.145813 281.000824,232.051620 C282.577362,210.707321 301.334625,195.280518 323.702972,195.965668 C344.138550,196.591614 361.784393,213.995331 362.102478,234.589325 C362.457581,257.575592 362.270569,280.571869 362.155762,303.562958 C362.111969,312.328613 355.064362,318.991730 346.447205,318.905731 C337.942780,318.820831 331.111847,311.994751 330.936462,303.274506 C330.809204,296.948090 330.834991,290.618561 330.784607,284.290497 C330.783386,284.137665 330.688690,283.985535 330.512451,283.459717 C324.606659,283.459717 318.566132,283.459717 312.001068,283.459717 C312.001068,289.790070 312.030396,296.071350 311.994141,302.352234 C311.940796,311.591919 305.571320,318.519379 296.832153,318.902069 C288.388092,319.271851 281.165588,313.091827 280.662109,303.971893 C280.084381,293.507263 280.409821,282.992767 280.343018,271.999939 M330.928925,245.386597 C330.920990,242.395630 331.106995,239.388657 330.861847,236.417267 C330.442383,231.332947 326.592407,227.607819 321.861389,227.375259 C317.179535,227.145096 312.522949,230.732666 312.150665,235.575058 C311.749908,240.788391 312.060120,246.056366 312.060120,251.224792 C318.682922,251.224792 324.703339,251.224792 330.928894,251.224792 C330.928894,249.303375 330.928894,247.815933 330.928925,245.386597 z"/>
       </svg>
     </div>
     <span class="nav-logo-text">ARBITER<span>.</span>AGENT</span>
@@ -942,8 +1129,8 @@
   <ul class="nav-links">
     <li><a href="#how-it-works">How it works</a></li>
     <li><a href="#features">Features</a></li>
-    <li><a href="#scoring">Scoring</a></li>
-    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Request Access</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#" class="nav-cta" onclick="openModal();return false;">Get Access</a></li>
   </ul>
 </nav>
 
@@ -962,7 +1149,7 @@
     </h1>
 
     <p class="hero-sub reveal reveal-delay-2">
-      Arbiter Agent watches ArbiterSports around the clock, scores available games using Gemini AI, and assigns the best ones to your account — before anyone else gets there.
+      ArbiterSports posts open referee games throughout the day — and they fill up fast. Arbiter Agent checks every hour, scores each available game based on your preferences (pay, distance, position, age group), and automatically claims the best ones to your schedule. You wake up to games already booked.
     </p>
 
     <div class="hero-actions reveal reveal-delay-3">
@@ -1069,16 +1256,16 @@
 <div class="stats-bar">
   <div class="stats-bar-inner">
     <div class="stat-item reveal">
-      <div class="stat-num"><span class="accent" data-target="4">0</span></div>
-      <div class="stat-label">Leagues monitored</div>
+      <div class="stat-num"><span class="accent" style="font-family:var(--mono);font-size:42px;font-weight:600;line-height:1;">Any</span></div>
+      <div class="stat-label">League on ArbiterSports works</div>
     </div>
     <div class="stat-item reveal reveal-delay-1">
       <div class="stat-num"><span data-target="60">0</span><span class="unit">min</span></div>
-      <div class="stat-label">Between each run</div>
+      <div class="stat-label">Between automatic checks</div>
     </div>
     <div class="stat-item reveal reveal-delay-2">
       <div class="stat-num"><span data-target="0">0</span></div>
-      <div class="stat-label">Clicks required to assign</div>
+      <div class="stat-label">Clicks needed to get assigned</div>
     </div>
     <div class="stat-item reveal reveal-delay-3">
       <div class="stat-num"><span data-target="100">0</span></div>
@@ -1097,36 +1284,36 @@
     <div class="step reveal">
       <div class="step-num">01</div>
       <div class="step-icon">🎛</div>
-      <div class="step-title">Set Your Preferences</div>
-      <div class="step-body">Configure what matters to you once — minimum pay, max distance, preferred position, age groups, and leagues. Set separate thresholds for auto-assign vs. email review.</div>
+      <div class="step-title">Tell It What You Want</div>
+      <div class="step-body">Set your preferences once: minimum pay, how far you'll travel, which positions you do, and what age groups you prefer. Set a high bar for auto-accept and a lower bar for "email me, I'll decide." That's it — you're done with setup.</div>
       <div class="step-detail">
-        <span class="step-tag">payment</span>
-        <span class="step-tag">distance</span>
+        <span class="step-tag">min pay</span>
+        <span class="step-tag">max distance</span>
         <span class="step-tag">position</span>
+        <span class="step-tag">age group</span>
         <span class="step-tag">leagues</span>
-        <span class="step-tag">age groups</span>
       </div>
     </div>
     <div class="step reveal reveal-delay-1">
       <div class="step-num">02</div>
       <div class="step-icon">🤖</div>
-      <div class="step-title">AI Evaluates Every Game</div>
-      <div class="step-body">Every hour, Gemini 2.5 Flash scores each available game 0–100 based on your criteria. Calendar conflicts with your Byga schedule are automatically detected and excluded.</div>
+      <div class="step-title">It Checks Every Hour, Automatically</div>
+      <div class="step-body">Every hour, the agent logs into ArbiterSports and pulls every available game. Each one gets scored 0–100 against your criteria. If a game overlaps with something already on your calendar, it's automatically skipped — no double-bookings, ever.</div>
       <div class="step-detail">
-        <span class="step-tag">Gemini 2.5 Flash</span>
-        <span class="step-tag">0–100 scoring</span>
+        <span class="step-tag">Gemini AI scoring</span>
+        <span class="step-tag">0–100 score</span>
         <span class="step-tag">conflict check</span>
       </div>
     </div>
     <div class="step reveal reveal-delay-2">
       <div class="step-num">03</div>
       <div class="step-icon">⚡</div>
-      <div class="step-title">Assigned or Delivered</div>
-      <div class="step-body">Top-scoring games are automatically assigned to your ArbiterSports account. Others land in a clean email digest so you can manually review and decide.</div>
+      <div class="step-title">Games Show Up in Your Account</div>
+      <div class="step-body">Games above your auto-accept score are claimed to your ArbiterSports account immediately — the same as clicking "Go" yourself, just done for you. Games just below your threshold land in a summary email. Everything else is ignored quietly.</div>
       <div class="step-detail">
         <span class="step-tag">auto-assign</span>
         <span class="step-tag">email digest</span>
-        <span class="step-tag">one-click review</span>
+        <span class="step-tag">nothing missed</span>
       </div>
     </div>
   </div>
@@ -1142,33 +1329,33 @@
     <div class="features-grid">
       <div class="feature-card reveal">
         <span class="feature-icon">🎯</span>
-        <div class="feature-title">AI Scoring Engine</div>
-        <div class="feature-body">Gemini 2.5 Flash evaluates each game against your criteria using function-calling tool use. Every score comes with transparent reasoning so you always understand why.</div>
+        <div class="feature-title">AI Scores Every Game</div>
+        <div class="feature-body">Every available game gets a 0–100 score based on your preferences — pay, distance, position, age group, and league. You can see exactly why each game scored the way it did.</div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <span class="feature-icon">⚡</span>
-        <div class="feature-title">Instant Auto-Assign</div>
-        <div class="feature-body">Games above your threshold are claimed immediately via headless browser automation — the same action as clicking "Go" on ArbiterSports, but done for you.</div>
+        <div class="feature-title">Auto-Assigns the Best Ones</div>
+        <div class="feature-body">Games above your threshold are claimed to your ArbiterSports account instantly — the same as clicking "Go" yourself, but done while you sleep. First come, first served. You come first.</div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <span class="feature-icon">📅</span>
-        <div class="feature-title">Calendar Conflict Detection</div>
-        <div class="feature-body">Connects to your Byga calendar and cross-references your existing schedule, including configurable buffer time before and after each event.</div>
+        <div class="feature-title">Skips Conflicting Games</div>
+        <div class="feature-body">Syncs with your existing calendar. If a game overlaps with something you already have — including travel buffer time — it's automatically excluded. No accidental double-bookings.</div>
       </div>
       <div class="feature-card reveal reveal-delay-1">
         <span class="feature-icon">📧</span>
-        <div class="feature-title">Email Digest</div>
-        <div class="feature-body">Games that score above your "consider" threshold land in a clean HTML email with scores, reasoning, pay, distance, and a direct link to assign each game.</div>
+        <div class="feature-title">Email Digest for Close Calls</div>
+        <div class="feature-body">Games just below your auto-assign bar get emailed to you in a clean summary: score, reasoning, pay, distance, and a direct link. Review in 30 seconds and decide.</div>
       </div>
       <div class="feature-card reveal reveal-delay-2">
         <span class="feature-icon">🎚</span>
-        <div class="feature-title">Dual Preference Tiers</div>
-        <div class="feature-body">Separate thresholds for auto-assign (strict) and notify (lenient). Games that are "good but not great" still reach you — just in your inbox instead of being auto-claimed.</div>
+        <div class="feature-title">Two Thresholds, Your Control</div>
+        <div class="feature-body">Set a high bar to auto-claim and a lower bar to get notified. "Great" games are handled automatically. "Good" games land in your inbox. Everything else is silently ignored.</div>
       </div>
       <div class="feature-card reveal reveal-delay-3">
         <span class="feature-icon">🔒</span>
-        <div class="feature-title">Secure Session Auth</div>
-        <div class="feature-body">No passwords stored. Uses browser session capture via a one-time setup command. Sessions stay fresh for ~2 weeks; an alert email reminds you when renewal is needed.</div>
+        <div class="feature-title">No Password Required</div>
+        <div class="feature-body">Setup takes one terminal command to capture your browser session. No passwords stored anywhere. When your session expires (~2 weeks), you get an alert email to renew in seconds.</div>
       </div>
     </div>
   </section>
@@ -1277,26 +1464,74 @@
 <!-- ── Leagues ─────────────────────────────────────────────────── -->
 <div style="background: var(--bg-warm); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <section class="section" style="padding: 72px 48px;">
-    <div class="overline reveal">Coverage</div>
-    <h2 class="section-heading reveal reveal-delay-1">4 leagues.<br>Zero gaps.</h2>
-    <p class="section-sub reveal reveal-delay-2">Arbiter Agent monitors all major youth soccer leagues in the South Bay simultaneously, across every available position.</p>
+    <div class="overline reveal">Compatibility</div>
+    <h2 class="section-heading reveal reveal-delay-1">Works with any<br>league you ref.</h2>
+    <p class="section-sub reveal reveal-delay-2">If your league posts games on ArbiterSports, Arbiter Agent can monitor it. You specify which leagues you want tracked — it watches all of them simultaneously.</p>
     <div class="leagues-wrap reveal reveal-delay-3">
       <div class="league-pill"><div class="league-pill-dot"></div>Almaden</div>
       <div class="league-pill"><div class="league-pill-dot"></div>LGU</div>
       <div class="league-pill"><div class="league-pill-dot"></div>DYSL-De Anza</div>
       <div class="league-pill"><div class="league-pill-dot"></div>MVLA-SASC-WV</div>
-      <span class="leagues-more">+ more leagues on request</span>
+      <div class="league-pill league-pill-add">
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1v10M1 6h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Add your league
+      </div>
     </div>
+    <p style="margin-top:20px;font-size:13px;color:var(--text-3);font-family:var(--mono);">↑ These are examples — you configure exactly which leagues to monitor during setup.</p>
   </section>
 </div>
+
+<!-- ── Pricing ─────────────────────────────────────────────────── -->
+<section class="section" id="pricing">
+  <div class="overline reveal">Pricing</div>
+  <h2 class="section-heading reveal reveal-delay-1">Simple pricing.<br>No surprises.</h2>
+  <p class="section-sub reveal reveal-delay-2">One agent, two ways to pay. Both include every feature.</p>
+
+  <div class="pricing-grid reveal reveal-delay-2">
+    <div class="pricing-card">
+      <div class="pricing-plan">Monthly</div>
+      <div class="pricing-price">
+        <span class="pricing-amount">$9.99</span>
+        <span class="pricing-period">/month</span>
+      </div>
+      <div class="pricing-desc">Pay month-to-month. Cancel anytime. Great for the active season.</div>
+      <ul class="pricing-features">
+        <li>Works with any ArbiterSports league</li>
+        <li>Runs every hour, automatically</li>
+        <li>AI scoring + auto-assign</li>
+        <li>Email digest for borderline games</li>
+        <li>Calendar conflict detection</li>
+      </ul>
+      <button onclick="openModal()" class="btn-outline-card">Get started →</button>
+    </div>
+
+    <div class="pricing-card pricing-card-featured">
+      <div class="pricing-badge-best">Best value</div>
+      <div class="pricing-plan">One-time</div>
+      <div class="pricing-price">
+        <span class="pricing-amount">$99.99</span>
+        <span class="pricing-period"> once</span>
+      </div>
+      <div class="pricing-desc">Pay once, use forever. Equivalent to 10 months — and you keep it as long as you referee.</div>
+      <ul class="pricing-features">
+        <li>Everything in Monthly</li>
+        <li>Priority setup support</li>
+        <li>All future updates included</li>
+        <li>No recurring charges, ever</li>
+      </ul>
+      <button onclick="openModal()" class="btn-primary" style="width:100%;justify-content:center;">Get lifetime access →</button>
+    </div>
+  </div>
+  <p class="pricing-note reveal reveal-delay-3">Early access pricing · Locked in for life if you join now · No credit card required to request access</p>
+</section>
 
 <!-- ── CTA ─────────────────────────────────────────────────────── -->
 <div class="cta-section" id="access">
   <div class="cta-inner">
     <div class="cta-left">
-      <div class="cta-overline reveal">Early access</div>
-      <h2 class="cta-heading reveal reveal-delay-1">Stop watching<br>the <span class="red">board.</span></h2>
-      <p class="cta-sub reveal reveal-delay-2">Arbiter Agent is in active development. Request early access and be first to automate your referee assignments.</p>
+      <div class="cta-overline reveal">Early access · $9.99/mo or $99.99 lifetime</div>
+      <h2 class="cta-heading reveal reveal-delay-1">Stop refreshing<br>the <span class="red">board.</span></h2>
+      <p class="cta-sub reveal reveal-delay-2">Let the agent do it. Request access and we'll get you set up — games start booking themselves within the hour.</p>
     </div>
     <div class="cta-right reveal reveal-delay-2">
       <button onclick="openModal()" class="btn-white">
@@ -1315,9 +1550,12 @@
     <div class="footer-left">
       <div style="display:flex;align-items:center;gap:8px;">
         <div class="nav-logo-mark" style="width:24px;height:24px;border-radius:6px;">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
-            <path d="M12 2L3 7v10l9 5 9-5V7L12 2zm0 2.18L19 8.09v7.82L12 19.82 5 15.91V8.09L12 4.18z"/>
-            <path d="M12 8l-4 2.2v4.4L12 16.8l4-2.2v-4.4L12 8zm0 1.8l2.5 1.38v2.64L12 15.2l-2.5-1.38V11.18L12 9.8z"/>
+          <svg viewBox="168 28 198 464" xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;">
+            <path fill="none" d="M292.000000,521.000000 C194.689621,521.000000 97.879227,521.000000 1.034423,521.000000 C1.034423,347.730713 1.034423,174.461395 1.034423,1.096040 C178.893753,1.096040 356.787567,1.096040 534.840698,1.096040 C534.840698,174.333221 534.840698,347.666595 534.840698,521.000000 C454.127960,521.000000 373.313995,521.000000 292.000000,521.000000 M287.088409,437.500000 C287.088409,424.255066 287.088409,411.010162 287.088409,397.838196 C297.947968,397.838196 308.021881,397.838196 318.550415,397.838196 C318.550415,400.016235 318.550354,401.818359 318.550415,403.620514 C318.550690,416.118591 318.469879,428.617401 318.577942,441.114532 C318.659454,450.544556 325.555756,457.623016 334.355408,457.595428 C343.273041,457.567474 349.966431,450.510590 349.993774,441.005249 C350.030670,428.174011 350.003082,415.342529 350.003174,402.511169 C350.003204,400.915253 350.003174,399.319336 350.003174,397.380951 C368.114807,398.323944 383.533417,393.263031 396.074158,380.817749 C408.729828,368.258331 413.784637,352.677216 412.997467,334.659851 C415.250244,334.659851 417.043213,334.659912 418.836182,334.659851 C430.501068,334.659363 442.168121,334.798584 453.830139,334.614960 C463.478455,334.463013 470.113708,327.769012 470.066345,318.698761 C470.019379,309.700043 463.125671,303.108917 453.585663,303.039215 C445.920593,302.983215 438.254791,303.027710 430.589294,303.027679 C424.820007,303.027649 419.050720,303.027679 413.246613,303.027679 C413.246613,292.351379 413.246613,282.269836 413.246613,271.806488 C415.308197,271.806488 417.108978,271.806519 418.909760,271.806519 C438.740051,271.806458 458.570465,271.844177 478.400635,271.790680 C488.625610,271.763092 495.864380,265.131927 495.907898,255.946365 C495.951996,246.640320 488.800476,240.106766 478.477539,240.096237 C458.480591,240.075867 438.483673,240.090256 418.486725,240.090256 C416.730988,240.090256 414.975250,240.090256 413.293091,240.090256 C413.293091,229.327927 413.293091,219.252136 413.293091,208.909714 C426.422058,208.909714 439.232208,208.925735 452.042297,208.904770 C462.825317,208.887131 469.947723,202.638336 470.038605,193.168945 C470.131989,183.437057 463.021851,177.126953 451.850403,177.097122 C440.352264,177.066406 428.853912,177.099869 417.355743,177.077805 C415.933380,177.075089 414.511353,176.903671 413.109650,176.811783 C413.977081,148.364120 393.226257,117.609344 352.972260,116.641571 C352.972260,102.702156 352.988312,88.746490 352.966949,74.790886 C352.951019,64.371712 346.628571,57.239555 337.338562,57.094707 C328.339050,56.954391 321.397675,64.284096 321.229736,74.431885 C321.072601,83.927849 321.194305,93.428421 321.193604,102.926964 C321.193237,107.530968 321.193512,112.134972 321.193512,116.814056 C310.512512,116.814056 300.443176,116.814056 290.003113,116.814056 C290.003113,114.743492 290.003082,112.944458 290.003082,111.145416 C290.003021,90.148628 289.947083,69.151604 290.038391,48.155212 C290.064423,42.168388 287.900269,37.417606 282.947510,34.138683 C278.003174,30.865345 272.610504,30.397659 267.311340,33.105503 C261.074646,36.292427 258.353149,41.761806 258.347534,48.649353 C258.332703,66.813225 258.341003,84.977119 258.340210,103.140999 C258.339996,107.605476 258.340179,112.069946 258.340179,116.720612 C247.733276,116.720612 237.540619,116.720612 227.060699,116.720612 C227.060699,101.707649 227.190552,87.061325 227.010040,72.418823 C226.908249,64.161308 220.236221,57.540970 212.162094,57.100029 C203.979324,56.653149 196.344284,62.928848 195.889572,71.363487 C195.361099,81.166626 195.614609,91.012589 195.556030,100.840126 C195.524597,106.112892 195.550446,111.385994 195.550446,116.562775 C151.456543,122.589859 138.457764,135.018890 132.231934,177.090256 C130.536804,177.090256 128.754593,177.090118 126.972374,177.090271 C114.474289,177.091232 101.974854,176.979172 89.478554,177.129150 C79.521553,177.248642 72.677582,183.996704 72.802849,193.185074 C72.929184,202.452835 79.781143,208.853516 89.775459,208.896515 C102.439957,208.950989 115.104881,208.900299 127.769569,208.921692 C129.357620,208.924362 130.945389,209.089447 132.403198,209.171921 C132.403198,219.742828 132.403198,229.798019 132.403198,240.090256 C130.188248,240.090256 128.363983,240.090271 126.539719,240.090271 C105.709572,240.090286 84.876015,239.896667 64.052353,240.264053 C60.181908,240.332352 55.814247,241.887527 52.621494,244.112900 C47.099335,247.961899 45.666039,254.915222 47.897919,261.125427 C50.339664,267.919586 55.874126,271.763672 63.711670,271.785767 C84.874931,271.845490 106.038475,271.800903 127.201889,271.816559 C128.959625,271.817841 130.717270,271.961182 132.445801,272.037231 C132.445801,282.643341 132.445801,292.710907 132.445801,303.027710 C118.111275,303.027710 104.124031,303.016113 90.136833,303.031525 C79.654984,303.043091 72.815834,309.271973 72.800377,318.777954 C72.785004,328.231873 79.668495,334.601440 90.096771,334.647095 C102.427979,334.701080 114.759605,334.659851 127.091049,334.659882 C128.851974,334.659882 130.612900,334.659851 132.848145,334.659851 C131.831284,352.256317 136.693558,367.244141 148.417969,379.613708 C160.275818,392.124023 175.160706,397.738647 192.794647,397.549316 C192.794647,399.789093 192.794479,401.579010 192.794678,403.368896 C192.796066,415.866974 192.712173,428.365875 192.826401,440.862915 C192.915604,450.621002 199.323883,457.420380 208.289398,457.586731 C217.378510,457.755371 224.120041,450.700226 224.183273,440.743958 C224.262619,428.246368 224.202835,415.747894 224.203064,403.249817 C224.203110,401.471985 224.203079,399.694122 224.203079,397.816711 C234.918167,397.816711 244.983322,397.816711 255.550446,397.816711 C255.550446,400.131714 255.546600,402.095703 255.551056,404.059692 C255.599411,425.387421 255.394196,446.720215 255.814606,468.040619 C256.002014,477.544708 262.931122,483.342499 272.159180,483.083923 C280.733582,482.843719 287.002533,476.150452 287.071808,466.995514 C287.143677,457.497528 287.088196,447.998535 287.088409,437.500000 z"/>
+            <path fill="white" d="M287.088409,438.000000 C287.088196,447.998535 287.143677,457.497528 287.071808,466.995514 C287.002533,476.150452 280.733582,482.843719 272.159180,483.083923 C262.931122,483.342499 256.002014,477.544708 255.814606,468.040619 C255.394196,446.720215 255.599411,425.387421 255.551056,404.059692 C255.546600,402.095703 255.550446,400.131714 255.550446,397.816711 C244.983322,397.816711 234.918167,397.816711 224.203079,397.816711 C224.203079,399.694122 224.203110,401.471985 224.203064,403.249817 C224.202835,415.747894 224.262619,428.246368 224.183273,440.743958 C224.120041,450.700226 217.378510,457.755371 208.289398,457.586731 C199.323883,457.420380 192.915604,450.621002 192.826401,440.862915 C192.712173,428.365875 192.796066,415.866974 192.794678,403.368896 C192.794479,401.579010 192.794647,399.789093 192.794647,397.549316 C175.160706,397.738647 160.275818,392.124023 148.417969,379.613708 C136.693558,367.244141 131.831284,352.256317 132.848145,334.659851 C130.612900,334.659851 128.851974,334.659882 127.091049,334.659882 C114.759605,334.659851 102.427979,334.701080 90.096771,334.647095 C79.668495,334.601440 72.785004,328.231873 72.800377,318.777954 C72.815834,309.271973 79.654984,303.043091 90.136833,303.031525 C104.124031,303.016113 118.111275,303.027710 132.445801,303.027710 C132.445801,292.710907 132.445801,282.643341 132.445801,272.037231 C130.717270,271.961182 128.959625,271.817841 127.201889,271.816559 C106.038475,271.800903 84.874931,271.845490 63.711670,271.785767 C55.874126,271.763672 50.339664,267.919586 47.897919,261.125427 C45.666039,254.915222 47.099335,247.961899 52.621494,244.112900 C55.814247,241.887527 60.181908,240.332352 64.052353,240.264053 C84.876015,239.896667 105.709572,240.090286 126.539719,240.090271 C128.363983,240.090271 130.188248,240.090256 132.403198,240.090256 C132.403198,229.798019 132.403198,219.742828 132.403198,209.171921 C130.945389,209.089447 129.357620,208.924362 127.769569,208.921692 C115.104881,208.900299 102.439957,208.950989 89.775459,208.896515 C79.781143,208.853516 72.929184,202.452835 72.802849,193.185074 C72.677582,183.996704 79.521553,177.248642 89.478554,177.129150 C101.974854,176.979172 114.474289,177.091232 126.972374,177.090271 C128.754593,177.090118 130.536804,177.090256 132.231934,177.090256 C138.457764,135.018890 151.456543,122.589859 195.550446,116.562775 C195.550446,111.385994 195.524597,106.112892 195.556030,100.840126 C195.614609,91.012589 195.361099,81.166626 195.889572,71.363487 C196.344284,62.928848 203.979324,56.653149 212.162094,57.100029 C220.236221,57.540970 226.908249,64.161308 227.010040,72.418823 C227.190552,87.061325 227.060699,101.707649 227.060699,116.720612 C237.540619,116.720612 247.733276,116.720612 258.340179,116.720612 C258.340179,112.069946 258.339996,107.605476 258.340210,103.140999 C258.341003,84.977119 258.332703,66.813225 258.347534,48.649353 C258.353149,41.761806 261.074646,36.292427 267.311340,33.105503 C272.610504,30.397659 278.003174,30.865345 282.947510,34.138683 C287.900269,37.417606 290.064423,42.168388 290.038391,48.155212 C289.947083,69.151604 290.003021,90.148628 290.003082,111.145416 C290.003082,112.944458 290.003113,114.743492 290.003113,116.814056 C300.443176,116.814056 310.512512,116.814056 321.193512,116.814056 C321.193512,112.134972 321.193237,107.530968 321.193604,102.926964 C321.194305,93.428421 321.072601,83.927849 321.229736,74.431885 C321.397675,64.284096 328.339050,56.954391 337.338562,57.094707 C346.628571,57.239555 352.951019,64.371712 352.966949,74.790886 C352.988312,88.746490 352.972260,102.702156 352.972260,116.641571 C393.226257,117.609344 413.977081,148.364120 413.109650,176.811783 C414.511353,176.903671 415.933380,177.075089 417.355743,177.077805 C428.853912,177.099869 440.352264,177.066406 451.850403,177.097122 C463.021851,177.126953 470.131989,183.437057 470.038605,193.168945 C469.947723,202.638336 462.825317,208.887131 452.042297,208.904770 C439.232208,208.925735 426.422058,208.909714 413.293091,208.909714 C413.293091,219.252136 413.293091,229.327927 413.293091,240.090256 C414.975250,240.090256 416.730988,240.090256 418.486725,240.090256 C438.483673,240.090256 458.480591,240.075867 478.477539,240.096237 C488.800476,240.106766 495.951996,246.640320 495.907898,255.946365 C495.864380,265.131927 488.625610,271.763092 478.400635,271.790680 C458.570465,271.844177 438.740051,271.806458 418.909760,271.806519 C417.108978,271.806519 415.308197,271.806488 413.246613,271.806488 C413.246613,282.269836 413.246613,292.351379 413.246613,303.027679 C419.050720,303.027679 424.820007,303.027649 430.589294,303.027679 C438.254791,303.027710 445.920593,302.983215 453.585663,303.039215 C463.125671,303.108917 470.019379,309.700043 470.066345,318.698761 C470.113708,327.769012 463.478455,334.463013 453.830139,334.614960 C442.168121,334.798584 430.501068,334.659363 418.836182,334.659851 C417.043213,334.659912 415.250244,334.659851 412.997467,334.659851 C413.784637,352.677216 408.729828,368.258331 396.074158,380.817749 C383.533417,393.263031 368.114807,398.323944 350.003174,397.380951 C350.003174,399.319336 350.003204,400.915253 350.003174,402.511169 C350.003082,415.342529 350.030670,428.174011 349.993774,441.005249 C349.966431,450.510590 343.273041,457.567474 334.355408,457.595428 C325.555756,457.623016 318.659454,450.544556 318.577942,441.114532 C318.469879,428.617401 318.550690,416.118591 318.550415,403.620514 C318.550354,401.818359 318.550415,400.016235 318.550415,397.838196 C308.021881,397.838196 297.947968,397.838196 287.088409,397.838196 C287.088409,411.010162 287.088409,424.255066 287.088409,438.000000 M194.541779,148.908051 C174.895447,146.994476 163.742828,161.341949 163.967270,179.440765 C164.624283,232.419662 164.190536,285.411957 164.207199,338.398987 C164.212433,355.071564 175.034317,365.979370 191.640671,365.987885 C245.794067,366.015564 299.947510,366.016754 354.100922,365.987000 C370.323090,365.978119 381.268219,355.404755 381.299988,339.287872 C381.407349,284.801422 381.402435,230.314514 381.304199,175.828003 C381.274109,159.138168 370.696411,148.912262 353.991333,148.910324 C301.170929,148.904221 248.350510,148.908066 194.541779,148.908051 z"/>
+            <path fill="rgba(255,255,255,0.15)" d="M195.035950,148.908051 C248.350510,148.908066 301.170929,148.904221 353.991333,148.910324 C370.696411,148.912262 381.274109,159.138168 381.304199,175.828003 C381.402435,230.314514 381.407349,284.801422 381.299988,339.287872 C381.268219,355.404755 370.323090,365.978119 354.100922,365.987000 C299.947510,366.016754 245.794067,366.015564 191.640671,365.987885 C175.034317,365.979370 164.212433,355.071564 164.207199,338.398987 C164.190536,285.411957 164.624283,232.419662 163.967270,179.440765 C163.742828,161.341949 174.895447,146.994476 195.035950,148.908051 M186.091217,291.494598 C186.091263,294.827728 186.073868,298.160980 186.094589,301.493958 C186.158859,311.834717 192.654648,318.943939 201.986115,318.904968 C211.230377,318.866364 217.754959,311.658875 217.800598,301.396118 C217.827042,295.447937 217.805405,289.499573 217.805405,283.424713 C224.249725,283.424713 230.142273,283.424713 236.349792,283.424713 C236.349792,289.913849 236.173996,296.075500 236.389740,302.223419 C236.740082,312.206970 243.550262,319.111450 252.533142,318.906433 C261.566498,318.700256 267.982544,311.579742 267.994263,301.634979 C268.019836,279.969391 268.014984,258.303711 267.981964,236.638138 C267.978668,234.481857 267.907898,232.286041 267.510193,230.176102 C263.345947,208.082108 244.757629,194.052292 222.406647,196.056274 C201.861557,197.898346 186.106110,216.087769 186.093292,237.999222 C186.083054,255.498383 186.091217,272.997559 186.091217,291.494598 M280.342926,272.499939 C280.409821,282.992767 280.084381,293.507263 280.662109,303.971893 C281.165588,313.091827 288.388092,319.271851 296.832153,318.902069 C305.571320,318.519379 311.940796,311.591919 311.994141,302.352234 C312.030396,296.071350 312.001068,289.790070 312.001068,283.459717 C318.566132,283.459717 324.606659,283.459717 330.512451,283.459717 C330.688690,283.985535 330.783386,284.137665 330.784607,284.290497 C330.834991,290.618561 330.809204,296.948090 330.936462,303.274506 C331.111847,311.994751 337.942780,318.820831 346.447205,318.905731 C355.064362,318.991730 362.111969,312.328613 362.155762,303.562958 C362.270569,280.571869 362.457581,257.575592 362.102478,234.589325 C361.784393,213.995331 344.138550,196.591614 323.702972,195.965668 C301.334625,195.280518 282.577362,210.707321 281.000824,232.051620 C280.033691,245.145813 280.513245,258.346863 280.342926,272.499939 z"/>
+            <path fill="white" d="M186.091217,290.995667 C186.091217,272.997559 186.083054,255.498383 186.093292,237.999222 C186.106110,216.087769 201.861557,197.898346 222.406647,196.056274 C244.757629,194.052292 263.345947,208.082108 267.510193,230.176102 C267.907898,232.286041 267.978668,234.481857 267.981964,236.638138 C268.014984,258.303711 268.019836,279.969391 267.994263,301.634979 C267.982544,311.579742 261.566498,318.700256 252.533142,318.906433 C243.550262,319.111450 236.740082,312.206970 236.389740,302.223419 C236.173996,296.075500 236.349792,289.913849 236.349792,283.424713 C230.142273,283.424713 224.249725,283.424713 217.805405,283.424713 C217.805405,289.499573 217.827042,295.447937 217.800598,301.396118 C217.754959,311.658875 211.230377,318.866364 201.986115,318.904968 C192.654648,318.943939 186.158859,311.834717 186.094589,301.493958 C186.073868,298.160980 186.091263,294.827728 186.091217,290.995667 M236.213928,250.683411 C236.219208,245.534515 236.522522,240.363419 236.140945,235.243362 C235.799988,230.668671 231.825256,227.490173 227.287445,227.369614 C222.792831,227.250198 218.418381,230.409576 218.078232,234.826187 C217.661469,240.237457 217.978897,245.705246 217.978897,251.361404 C224.106430,251.361404 229.881882,251.361404 236.213928,250.683411 z"/>
+            <path fill="white" d="M280.343018,271.999939 C280.513245,258.346863 280.033691,245.145813 281.000824,232.051620 C282.577362,210.707321 301.334625,195.280518 323.702972,195.965668 C344.138550,196.591614 361.784393,213.995331 362.102478,234.589325 C362.457581,257.575592 362.270569,280.571869 362.155762,303.562958 C362.111969,312.328613 355.064362,318.991730 346.447205,318.905731 C337.942780,318.820831 331.111847,311.994751 330.936462,303.274506 C330.809204,296.948090 330.834991,290.618561 330.784607,284.290497 C330.783386,284.137665 330.688690,283.985535 330.512451,283.459717 C324.606659,283.459717 318.566132,283.459717 312.001068,283.459717 C312.001068,289.790070 312.030396,296.071350 311.994141,302.352234 C311.940796,311.591919 305.571320,318.519379 296.832153,318.902069 C288.388092,319.271851 281.165588,313.091827 280.662109,303.971893 C280.084381,293.507263 280.409821,282.992767 280.343018,271.999939 M330.928925,245.386597 C330.920990,242.395630 331.106995,239.388657 330.861847,236.417267 C330.442383,231.332947 326.592407,227.607819 321.861389,227.375259 C317.179535,227.145096 312.522949,230.732666 312.150665,235.575058 C311.749908,240.788391 312.060120,246.056366 312.060120,251.224792 C318.682922,251.224792 324.703339,251.224792 330.928894,251.224792 C330.928894,249.303375 330.928894,247.815933 330.928925,245.386597 z"/>
           </svg>
         </div>
         <span style="font-family:var(--display);font-weight:800;font-size:14px;letter-spacing:0.04em;color:rgba(255,255,255,0.6);">ARBITER<span style="color:var(--red);">.</span>AGENT</span>
